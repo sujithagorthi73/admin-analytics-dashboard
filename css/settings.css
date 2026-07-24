@@ -1,0 +1,30 @@
+/* ==========================================================================
+   settings.css - styling for settings.html only
+   ========================================================================== */
+
+.settings-tabs { display: flex; gap: var(--sp-2); margin-bottom: var(--sp-5); border-bottom: 1px solid var(--border); overflow-x: auto; }
+.settings-tab {
+  padding: 12px 18px; font-size: var(--fs-sm); font-weight: 600; color: var(--text-muted);
+  border-bottom: 2px solid transparent; white-space: nowrap; background: none; border-top: none; border-left: none; border-right: none;
+}
+.settings-tab.active { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+
+.settings-panel { display: none; }
+.settings-panel.active { display: block; }
+
+.profile-avatar-row { display: flex; align-items: center; gap: var(--sp-4); margin-bottom: var(--sp-5); }
+.profile-avatar-row .avatar { width: 68px; height: 68px; font-size: var(--fs-lg); }
+
+.two-col-form { grid-template-columns: repeat(2, 1fr); gap: 0 var(--sp-4); }
+
+.settings-row { display: flex; justify-content: space-between; align-items: center; padding: var(--sp-4) 0; border-bottom: 1px solid var(--border); gap: var(--sp-4); }
+.settings-row:last-child { border-bottom: none; }
+.settings-row .name { font-weight: 600; font-size: var(--fs-sm); }
+.settings-row .desc { font-size: var(--fs-xs); color: var(--text-muted); margin-top: 2px; }
+
+@media (max-width: 640px) { .two-col-form { grid-template-columns: 1fr; } }
+
+@media (max-width: 480px) {
+  .profile-avatar-row { flex-direction: column; align-items: flex-start; gap: var(--sp-3); }
+  .settings-row { flex-direction: column; align-items: flex-start; gap: var(--sp-2); }
+}

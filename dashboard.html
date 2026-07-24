@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard · Pulse Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/variables.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- ============================= SIDEBAR ============================= -->
+  <aside class="sidebar">
+    <a href="dashboard.html" class="sidebar-brand"><span class="dot"></span><span class="label">Pulse Admin</span></a>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Main</div>
+      <a href="dashboard.html" class="sidebar-link"><span class="ico">🏠</span><span class="label">Dashboard</span></a>
+      <div class="sidebar-section-label">Management</div>
+      <a href="users.html" class="sidebar-link"><span class="ico">👥</span><span class="label">Users</span></a>
+      <a href="products.html" class="sidebar-link"><span class="ico">🛍️</span><span class="label">Products</span></a>
+      <a href="orders.html" class="sidebar-link"><span class="ico">📦</span><span class="label">Orders</span></a>
+      <div class="sidebar-section-label">Insights</div>
+      <a href="analytics.html" class="sidebar-link"><span class="ico">📈</span><span class="label">Analytics</span></a>
+      <a href="reports.html" class="sidebar-link"><span class="ico">📄</span><span class="label">Reports</span></a>
+      <div class="sidebar-section-label">Preferences</div>
+      <a href="settings.html" class="sidebar-link"><span class="ico">⚙️</span><span class="label">Settings</span></a>
+    </nav>
+    <div class="sidebar-foot">
+      <button class="sidebar-collapse-btn" id="sidebar-collapse-btn"><span>⏴</span><span class="label">Collapse</span></button>
+    </div>
+  </aside>
+
+  <!-- ============================= MAIN ============================= -->
+  <div class="main-content">
+
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="navbar-left">
+        <button class="navbar-burger" id="navbar-burger">☰</button>
+        <h2 class="navbar-title">Dashboard</h2>
+      </div>
+      <div class="navbar-right">
+        <div class="navbar-search input-icon-wrap">
+          <span class="icon">🔍</span>
+          <input class="input" placeholder="Search anything..." />
+        </div>
+        <button class="icon-btn" id="notif-bell">🔔<span class="dot-badge" id="notif-bell-dot"></span></button>
+        <div class="navbar-user">
+          <div class="avatar" data-user-initials>GM</div>
+          <div class="who">
+            <strong data-user-name>Grace Muller</strong>
+            <span data-user-role>Super Admin</span>
+          </div>
+        </div>
+        <button class="btn btn-ghost btn-sm" data-logout>Log out</button>
+      </div>
+
+      <!-- Notifications dropdown -->
+      <div class="notif-panel" id="notif-panel">
+        <div class="notif-panel-head"><span>Notifications</span><a href="#" class="muted">Mark all read</a></div>
+        <div id="notif-panel-list"></div>
+      </div>
+    </header>
+
+    <div class="page-wrap">
+
+      <!-- Welcome section -->
+      <section class="welcome-banner">
+        <div>
+          <h1>Welcome back, <span data-user-name>Grace</span> 👋</h1>
+          <p>Here's what's happening with your store today, July 21.</p>
+        </div>
+        <a href="reports.html" class="btn btn-primary">View full report</a>
+      </section>
+
+      <!-- Statistic cards -->
+      <div class="grid stats-grid" id="stats-grid"></div>
+
+      <!-- Line + Pie charts -->
+      <div class="grid charts-row">
+        <div class="card">
+          <div class="card-head">
+            <h3>Revenue &amp; Visitors</h3>
+            <span class="muted">Last 7 months</span>
+          </div>
+          <div class="chart-box"><canvas id="chart-line"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <h3>Sales by Category</h3>
+          </div>
+          <div class="chart-box"><canvas id="chart-pie"></canvas></div>
+        </div>
+      </div>
+
+      <!-- Bar chart -->
+      <div class="grid" style="grid-template-columns: 1fr; margin-bottom: var(--sp-5);">
+        <div class="card">
+          <div class="card-head">
+            <h3>Orders by Status</h3>
+            <span class="muted">Current month</span>
+          </div>
+          <div class="chart-box" style="height:220px;"><canvas id="chart-bar"></canvas></div>
+        </div>
+      </div>
+
+      <!-- Recent orders / recent users / notifications -->
+      <div class="grid dash-lower-row">
+        <div class="card">
+          <div class="card-head">
+            <h3>Recent Orders</h3>
+            <a href="orders.html" class="muted">View all →</a>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead><tr><th>Order</th><th>Customer</th><th>Date</th><th>Total</th><th>Status</th></tr></thead>
+              <tbody id="dash-recent-orders"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Recent Users</h3>
+            <a href="users.html" class="muted">View all →</a>
+          </div>
+          <div id="dash-recent-users"></div>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns: 1fr; margin-top: var(--sp-5);">
+        <div class="card">
+          <div class="card-head"><h3>Notifications</h3></div>
+          <div class="notif-list-embed" id="dash-notifications"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Chart.js from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

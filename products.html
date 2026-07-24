@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Products · Pulse Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/variables.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/tables-page.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand"><span class="dot"></span><span class="label">Pulse Admin</span></div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Main</div>
+      <a href="dashboard.html" class="sidebar-link"><span class="ico">🏠</span><span class="label">Dashboard</span></a>
+      <div class="sidebar-section-label">Management</div>
+      <a href="users.html" class="sidebar-link"><span class="ico">👥</span><span class="label">Users</span></a>
+      <a href="products.html" class="sidebar-link"><span class="ico">🛍️</span><span class="label">Products</span></a>
+      <a href="orders.html" class="sidebar-link"><span class="ico">📦</span><span class="label">Orders</span></a>
+      <div class="sidebar-section-label">Insights</div>
+      <a href="analytics.html" class="sidebar-link"><span class="ico">📈</span><span class="label">Analytics</span></a>
+      <a href="reports.html" class="sidebar-link"><span class="ico">📄</span><span class="label">Reports</span></a>
+      <div class="sidebar-section-label">Preferences</div>
+      <a href="settings.html" class="sidebar-link"><span class="ico">⚙️</span><span class="label">Settings</span></a>
+    </nav>
+    <div class="sidebar-foot">
+      <button class="sidebar-collapse-btn" id="sidebar-collapse-btn"><span>⏴</span><span class="label">Collapse</span></button>
+    </div>
+  </aside>
+
+  <div class="main-content">
+    <header class="navbar">
+      <div class="navbar-left">
+        <button class="navbar-burger" id="navbar-burger">☰</button>
+        <h2 class="navbar-title">Products</h2>
+      </div>
+      <div class="navbar-right">
+        <div class="navbar-search input-icon-wrap"><span class="icon">🔍</span><input class="input" placeholder="Search anything..." /></div>
+        <button class="icon-btn" id="notif-bell">🔔<span class="dot-badge" id="notif-bell-dot"></span></button>
+        <div class="navbar-user">
+          <div class="avatar" data-user-initials>GM</div>
+          <div class="who"><strong data-user-name>Grace Muller</strong><span data-user-role>Super Admin</span></div>
+        </div>
+        <button class="btn btn-ghost btn-sm" data-logout>Log out</button>
+      </div>
+      <div class="notif-panel" id="notif-panel">
+        <div class="notif-panel-head"><span>Notifications</span><a href="#" class="muted">Mark all read</a></div>
+        <div id="notif-panel-list"></div>
+      </div>
+    </header>
+
+    <div class="page-wrap">
+      <div class="page-header">
+        <div>
+          <h1>Product Catalog</h1>
+          <p>Manage the items available in your store.</p>
+        </div>
+        <button class="btn btn-primary" id="btn-add-product">+ Add Product</button>
+      </div>
+
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <div class="input-icon-wrap">
+            <span class="icon">🔍</span>
+            <input class="input" id="product-search" placeholder="Search products..." />
+          </div>
+          <select class="input" id="product-category-filter">
+            <option value="">All Categories</option>
+            <option>Electronics</option><option>Apparel</option><option>Home</option><option>Accessories</option><option>Sports</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid product-grid" id="products-grid"></div>
+      <div id="products-empty" class="empty-state hidden"><div class="icon">🛒</div><p>No products match your filters.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Add/Edit Product modal -->
+<div class="modal-overlay" id="product-modal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="product-modal-title">Add Product</h3>
+      <button class="modal-close" data-close-modal>&times;</button>
+    </div>
+    <form id="product-form">
+      <input type="hidden" id="product-id" />
+      <div class="field"><label for="product-name">Product Name</label><input class="input" id="product-name" required /></div>
+      <div class="field"><label for="product-category">Category</label>
+        <select class="input" id="product-category">
+          <option>Electronics</option><option>Apparel</option><option>Home</option><option>Accessories</option><option>Sports</option>
+        </select>
+      </div>
+      <div class="field"><label for="product-price">Price ($)</label><input class="input" type="number" step="0.01" min="0" id="product-price" required /></div>
+      <div class="field"><label for="product-stock">Stock Quantity</label><input class="input" type="number" min="0" id="product-stock" required /></div>
+      <div class="field"><label for="product-icon">Icon (emoji)</label><input class="input" id="product-icon" placeholder="🛍️" maxlength="2" /></div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" data-close-modal>Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Product</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete confirmation modal -->
+<div class="modal-overlay" id="delete-product-modal">
+  <div class="modal">
+    <div class="modal-head"><h3>Delete product?</h3><button class="modal-close" data-close-modal>&times;</button></div>
+    <p class="muted">This will permanently remove <strong id="delete-product-name"></strong> from your catalog.</p>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" data-close-modal>Cancel</button>
+      <button class="btn btn-danger" id="confirm-delete-product">Delete</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/products.js"></script>
+</body>
+</html>

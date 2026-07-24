@@ -1,0 +1,85 @@
+/* ==========================================================================
+   variables.css
+   Design tokens for the whole application. Every other stylesheet reads
+   colors, spacing and type sizes from these custom properties so the
+   look of the app can be changed from a single place (including Dark Mode,
+   which just re-declares this block under [data-theme="dark"]).
+   ========================================================================== */
+:root {
+  /* ---- Brand palette ---- */
+  --color-ink:        #12172B; /* sidebar / deep navy   */
+  --color-ink-2:      #1C2340; /* sidebar hover/active   */
+  --color-accent:     #5B5FEF; /* indigo - primary brand */
+  --color-accent-600: #4548C9;
+  --color-accent-100: #EEEEFD;
+  --color-teal:       #14B8A6; /* success / positive     */
+  --color-teal-100:   #E4F9F6;
+  --color-amber:      #F59E0B; /* warning / pending      */
+  --color-amber-100:  #FEF3DD;
+  --color-red:        #EF4444; /* danger / negative      */
+  --color-red-100:    #FDEAEA;
+  --color-blue:       #3B82F6; /* info                   */
+  --color-blue-100:   #E8F1FE;
+
+  /* ---- Surfaces & text (light theme defaults) ---- */
+  --bg:            #F4F5F9;
+  --surface:       #FFFFFF;
+  --surface-alt:   #F8F9FC;
+  --border:        #E4E7F0;
+  --text:          #1E2233;
+  --text-muted:    #8A8FA3;
+  --text-inverse:  #F4F5F9;
+
+  /* ---- Typography ---- */
+  --font-display: 'Sora', 'Segoe UI', sans-serif;
+  --font-body:    'Inter', 'Segoe UI', sans-serif;
+
+  --fs-xs:   .75rem;
+  --fs-sm:   .8125rem;
+  --fs-base: .9375rem;
+  --fs-md:   1.0625rem;
+  --fs-lg:   1.25rem;
+  --fs-xl:   1.625rem;
+  --fs-2xl:  2rem;
+
+  /* ---- Spacing scale ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+
+  /* ---- Misc ---- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 2px rgba(18, 23, 43, .06);
+  --shadow-md: 0 8px 24px rgba(18, 23, 43, .08);
+  --sidebar-w: 248px;
+  --sidebar-w-collapsed: 76px;
+  --navbar-h: 68px;
+  --transition: .18s ease;
+   --shadow-lg: 0 16px 40px rgba(18, 23, 43, .14);
+  --sp-8: 64px;
+  --touch-min: 44px;
+}
+
+/* ---- Dark theme overrides (toggled via Settings > Dark Mode) ---- */
+[data-theme="dark"] {
+  --bg:            #0F1220;
+  --surface:       #171B2E;
+  --surface-alt:   #1B2036;
+  --border:        #2A2F45;
+  --text:          #E7E9F5;
+  --text-muted:    #8D93B0;
+  --color-accent-100: #23245A;
+  --color-teal-100:  #113531;
+  --color-amber-100: #3A2E11;
+  --color-red-100:   #3A1B1B;
+  --color-blue-100:  #142446;
+}
+:root {
+  --shadow-lg: 0 16px 40px rgba(18, 23, 43, .14);
+}

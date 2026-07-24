@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sign in · Admin Analytics Dashboard</title>
+
+<!-- Google Fonts: Sora (display) + Inter (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/variables.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/login.css" />
+</head>
+<body class="login-body">
+
+<div class="login-grid">
+
+  <!-- Left: brand pitch panel (hidden on small screens) -->
+  <section class="login-pitch">
+    <div class="login-brand"><span class="dot"></span> Pulse Admin</div>
+
+    <div class="login-pitch-copy">
+      <h1>Every metric that matters, on one screen.</h1>
+      <p>Track revenue, users and orders in real time, then act on it &mdash; all from a single analytics dashboard.</p>
+    </div>
+
+    <div class="login-stat-strip">
+      <div><strong>24.3k</strong><span>Monthly revenue</span></div>
+      <div><strong>5,612</strong><span>Active visitors</span></div>
+      <div><strong>98.4%</strong><span>Uptime</span></div>
+    </div>
+  </section>
+
+  <!-- Right: login form -->
+  <section class="login-form-panel">
+    <div class="login-form-box">
+      <h2>Welcome back</h2>
+      <span class="muted">Sign in to access your admin dashboard.</span>
+
+      <div class="login-error" id="login-error"></div>
+
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="login-email">Email address</label>
+          <div class="input-icon-wrap">
+            <span class="icon">✉️</span>
+            <input class="input" type="email" id="login-email" placeholder="you@company.com" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="login-password">Password</label>
+          <div class="input-icon-wrap">
+            <span class="icon">🔒</span>
+            <input class="input" type="password" id="login-password" placeholder="••••••••" required />
+          </div>
+        </div>
+
+        <div class="login-remember">
+          <label><input type="checkbox" /> Remember me</label>
+          <a href="#" onclick="return false;">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+      </form>
+
+      <div class="login-hint">
+        Demo credentials: <strong>admin@dashboard.com</strong> / <strong>Admin@123</strong>
+        &nbsp;·&nbsp;
+        <a href="#" id="fill-demo-creds">Autofill</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
