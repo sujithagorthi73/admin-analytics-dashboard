@@ -1,7 +1,3 @@
-/* ==========================================================================
-   data.js
-   ========================================================================== */
-
 const SEED_USERS = [
   { id: 1, name: "Ava Thompson",  email: "ava.thompson@mailbox.com",  role: "Admin",     status: "Active",   joined: "2024-01-12" },
   { id: 2, name: "Liam Chen",     email: "liam.chen@mailbox.com",     role: "Editor",    status: "Active",   joined: "2024-02-03" },

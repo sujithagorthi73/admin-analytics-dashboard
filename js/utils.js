@@ -1,11 +1,3 @@
-/* ==========================================================================
-   utils.js
-   Small reusable helper functions shared by every page script. Keeping
-   these in one place is what lets dashboard.js / users.js / products.js
-   etc. stay short and focused on their own page logic.
-   ========================================================================== */
-
-/** Shorthand query selectors */
 const qs  = (sel, ctx = document) => ctx.querySelector(sel);
 const qsa = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 

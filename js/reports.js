@@ -1,7 +1,3 @@
-/* ==========================================================================
-   reports.js - logic specific to reports.html
-   ========================================================================== */
-
 const AVAILABLE_REPORTS = [
   { id: 1, name: "July 2026 Sales Report",      meta: "Generated Jul 21, 2026 · CSV", icon: "📊" },
   { id: 2, name: "Q2 2026 Revenue Summary",      meta: "Generated Jul 01, 2026 · CSV", icon: "💵" },

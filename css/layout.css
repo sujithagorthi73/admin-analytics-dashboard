@@ -79,7 +79,7 @@ body.sidebar-collapsed .sidebar-brand { justify-content: center; }
 }
 .navbar-title { font-size: var(--fs-lg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .navbar-search { position: relative; display: none; }
-.navbar-search .input { width: 260px; }
+.navbar-search .input { width: 900px; }
 
 .navbar-right { display: flex; align-items: center; gap: var(--sp-3); flex-shrink: 0; }
 .icon-btn {

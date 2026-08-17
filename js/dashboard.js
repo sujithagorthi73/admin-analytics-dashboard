@@ -1,8 +1,3 @@
-/* ==========================================================================
-   dashboard.js - logic specific to dashboard.html
-   ========================================================================== */
-
-/** Statistic card definitions - each reads its number straight from data.js */
 function getStatCards() {
   const orders = DB.load("orders", SEED_ORDERS);
   const users = DB.load("users", SEED_USERS);

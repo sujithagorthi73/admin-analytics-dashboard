@@ -1,85 +1,192 @@
 /* ==========================================================================
    variables.css
-   Design tokens for the whole application. Every other stylesheet reads
-   colors, spacing and type sizes from these custom properties so the
-   look of the app can be changed from a single place (including Dark Mode,
-   which just re-declares this block under [data-theme="dark"]).
+   Design tokens for the whole application
    ========================================================================== */
-:root {
-  /* ---- Brand palette ---- */
-  --color-ink:        #12172B; /* sidebar / deep navy   */
-  --color-ink-2:      #1C2340; /* sidebar hover/active   */
-  --color-accent:     #5B5FEF; /* indigo - primary brand */
-  --color-accent-600: #4548C9;
-  --color-accent-100: #EEEEFD;
-  --color-teal:       #14B8A6; /* success / positive     */
-  --color-teal-100:   #E4F9F6;
-  --color-amber:      #F59E0B; /* warning / pending      */
-  --color-amber-100:  #FEF3DD;
-  --color-red:        #EF4444; /* danger / negative      */
-  --color-red-100:    #FDEAEA;
-  --color-blue:       #3B82F6; /* info                   */
-  --color-blue-100:   #E8F1FE;
 
-  /* ---- Surfaces & text (light theme defaults) ---- */
-  --bg:            #F4F5F9;
-  --surface:       #FFFFFF;
-  --surface-alt:   #F8F9FC;
-  --border:        #E4E7F0;
-  --text:          #1E2233;
-  --text-muted:    #8A8FA3;
-  --text-inverse:  #F4F5F9;
+
+/* ==========================================================================
+   LIGHT MODE - DEFAULT
+   ========================================================================== */
+
+:root {
+
+  /* ---- Brand / Sidebar ---- */
+
+  /* Pink sidebar in Light Mode */
+  --color-ink: #F54F7D;
+  --color-ink-2: #E84370;
+
+  /* Pink primary accent */
+  --color-accent: #F54F7D;
+  --color-accent-600: #D93B66;
+  --color-accent-100: #FFF0F4;
+
+
+  /* ---- Status colors ---- */
+
+  --color-teal: #14B8A6;
+  --color-teal-100: #E4F9F6;
+
+  --color-amber: #F59E0B;
+  --color-amber-100: #FEF3DD;
+
+  --color-red: #EF4444;
+  --color-red-100: #FDEAEA;
+
+  --color-blue: #3B82F6;
+  --color-blue-100: #E8F1FE;
+
+
+  /* ---- Light Theme Surfaces ---- */
+
+  --bg: #F5F6FA;
+
+  --surface: #FFFFFF;
+
+  --surface-alt: #F8F9FC;
+
+  --border: #E4E7F0;
+
+  --text: #1E2233;
+
+  --text-muted: #8A8FA3;
+
+  --text-inverse: #F4F5F9;
+
 
   /* ---- Typography ---- */
+
   --font-display: 'Sora', 'Segoe UI', sans-serif;
-  --font-body:    'Inter', 'Segoe UI', sans-serif;
 
-  --fs-xs:   .75rem;
-  --fs-sm:   .8125rem;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+
+
+  /* ---- Font Sizes ---- */
+
+  --fs-xs: .75rem;
+
+  --fs-sm: .8125rem;
+
   --fs-base: .9375rem;
-  --fs-md:   1.0625rem;
-  --fs-lg:   1.25rem;
-  --fs-xl:   1.625rem;
-  --fs-2xl:  2rem;
 
-  /* ---- Spacing scale ---- */
+  --fs-md: 1.0625rem;
+
+  --fs-lg: 1.25rem;
+
+  --fs-xl: 1.625rem;
+
+  --fs-2xl: 2rem;
+
+
+  /* ---- Spacing ---- */
+
   --sp-1: 4px;
+
   --sp-2: 8px;
+
   --sp-3: 12px;
+
   --sp-4: 16px;
+
   --sp-5: 24px;
+
   --sp-6: 32px;
+
   --sp-7: 48px;
 
-  /* ---- Misc ---- */
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --shadow-sm: 0 1px 2px rgba(18, 23, 43, .06);
-  --shadow-md: 0 8px 24px rgba(18, 23, 43, .08);
-  --sidebar-w: 248px;
-  --sidebar-w-collapsed: 76px;
-  --navbar-h: 68px;
-  --transition: .18s ease;
-   --shadow-lg: 0 16px 40px rgba(18, 23, 43, .14);
   --sp-8: 64px;
+
+
+  /* ---- Border Radius ---- */
+
+  --radius-sm: 8px;
+
+  --radius-md: 14px;
+
+  --radius-lg: 20px;
+
+
+  /* ---- Shadows ---- */
+
+  --shadow-sm: 0 1px 2px rgba(18, 23, 43, .06);
+
+  --shadow-md: 0 8px 24px rgba(18, 23, 43, .08);
+
+  --shadow-lg: 0 16px 40px rgba(18, 23, 43, .14);
+
+
+  /* ---- Layout ---- */
+
+  --sidebar-w: 248px;
+
+  --sidebar-w-collapsed: 76px;
+
+  --navbar-h: 68px;
+
   --touch-min: 44px;
+
+  --transition: .18s ease;
 }
 
-/* ---- Dark theme overrides (toggled via Settings > Dark Mode) ---- */
+
+/* ==========================================================================
+   DARK MODE
+   ========================================================================== */
+
 [data-theme="dark"] {
-  --bg:            #0F1220;
-  --surface:       #171B2E;
-  --surface-alt:   #1B2036;
-  --border:        #2A2F45;
-  --text:          #E7E9F5;
-  --text-muted:    #8D93B0;
+
+  /* Restore original dark navy sidebar */
+
+  --color-ink: #12172B;
+
+  --color-ink-2: #1C2340;
+
+
+  /* Keep original accent color */
+
+  --color-accent: #5B5FEF;
+
+  --color-accent-600: #4548C9;
+
   --color-accent-100: #23245A;
-  --color-teal-100:  #113531;
+
+
+  /* ---- Dark Surfaces ---- */
+
+  --bg: #0F1220;
+
+  --surface: #171B2E;
+
+  --surface-alt: #1B2036;
+
+  --border: #2A2F45;
+
+
+  /* ---- Dark Text ---- */
+
+  --text: #E7E9F5;
+
+  --text-muted: #8D93B0;
+
+  --text-inverse: #F4F5F9;
+
+
+  /* ---- Dark Status Backgrounds ---- */
+
+  --color-teal-100: #113531;
+
   --color-amber-100: #3A2E11;
-  --color-red-100:   #3A1B1B;
-  --color-blue-100:  #142446;
-}
-:root {
-  --shadow-lg: 0 16px 40px rgba(18, 23, 43, .14);
+
+  --color-red-100: #3A1B1B;
+
+  --color-blue-100: #142446;
+
+
+  /* ---- Dark Shadows ---- */
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .20);
+
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, .30);
+
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, .40);
 }

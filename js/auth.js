@@ -1,12 +1,3 @@
-/* ==========================================================================
-   auth.js
-   Very small "authentication" layer for the demo. There is no real
-   backend, so we accept a fixed dummy credential pair and store a
-   session flag in sessionStorage. Every internal page checks this flag
-   (see layout.js -> requireAuth()) and bounces back to the login page
-   if it is missing, which is enough to demonstrate a protected app shell.
-   ========================================================================== */
-
 const DEMO_CREDENTIALS = { email: "admin@dashboard.com", password: "Admin@123" };
 
 function initLoginPage() {

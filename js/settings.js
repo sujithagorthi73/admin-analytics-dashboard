@@ -1,7 +1,3 @@
-/* ==========================================================================
-   settings.js - logic specific to settings.html
-   ========================================================================== */
-
 function bindSettingsTabs() {
   qsa(".settings-tab").forEach(tab => {
     tab.addEventListener("click", () => {

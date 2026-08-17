@@ -1,7 +1,3 @@
-/* ==========================================================================
-   analytics.js - logic specific to analytics.html
-   ========================================================================== */
-
 const TRAFFIC_SOURCES = { Organic: 38, Direct: 24, Social: 19, Referral: 12, Email: 7 };
 
 function renderVisitorsChart() {
